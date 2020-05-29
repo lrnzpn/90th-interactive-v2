@@ -43,18 +43,20 @@
           //- switch to fixed header, reveal text
           transition(name="fade" mode="out-in")
             .laptop.center.wh.fixed(v-if="getActiveSection == 5")
-              .laptop-wrapper.center 
-                .mac-wrapper
-                  .mac-txt.static
-              .laptop-txt-wrapper.center.fixed
-                .laptop-txt.center
-                  p.blue 
-                    | FOR 90 years, The GUIDON has committed itself to providing its readers with
-                    | accurate and engaging content, made accessible through newsstands across the
-                    | campus. After the publication launched its online platforms in 2008, it has
-                    | steadily begun to delve into the world of digital journalism. Looking towards
-                    | the future, The GUIDON hopes to fully transition into an online publication by
-                    | its 100th year.
+              .collapse-laptop.center.col.wh
+                .laptop-wrapper.center 
+                  .mac-wrapper.center
+                    .mac-txt.static
+      
+                .laptop-txt-wrapper.center.absolute
+                  .laptop-txt.center
+                    p.blue 
+                      | FOR 90 years, The GUIDON has committed itself to providing its readers with
+                      | accurate and engaging content, made accessible through newsstands across the
+                      | campus. After the publication launched its online platforms in 2008, it has
+                      | steadily begun to delve into the world of digital journalism. Looking towards
+                      | the future, The GUIDON hopes to fully transition into an online publication by
+                      | its 100th year.
         
         #newspaper.fixed
           .newspaper.center.wh
@@ -199,7 +201,7 @@
           transition(name="fade" mode="out-in")
             .future.blu-bg.wh.center(v-if="getActiveSection >= 22 && getActiveSection < 25")
               .scrn-wrapper.center.absolute
-                .scrn.static.absolute.center
+                .scrn.lt-pos.absolute.center
                   //- text containers
                   transition(name="fade" mode="out-in")
                     .scrn-txt-wrapper.center.absolute(v-if="getActiveSection == 22")
@@ -375,7 +377,13 @@ export default {
         document.querySelector(".srch").style.background =
           "linear-gradient(90deg, #173359 0%, #2C4396 100%)";
       } else {
-        document.querySelector(".srch").removeAttribute("style");
+        try {
+          document.querySelector(".srch").removeAttribute("style");
+        } catch {
+          // Displays this error
+          // Uncaught TypeError: Cannot read property 'removeAttribute' of null at a.scroll
+          // So lets not show it :)
+        }
       }
     }
   },
@@ -413,10 +421,27 @@ export default {
     max-height: 130px;
     max-width: 60vw;
 
+    @include screen('md') { 
+
+    } @include screen('xs') { 
+      width: 18vw;
+      height: 15vw;
+    }
+
+
     .search {
       height: 3.5vw;
       width: 3.5vw;
       background-image: url("../assets/img/search.png");
+
+      @include screen('md') {
+
+      }
+
+      @include screen('xs') {
+        height: 5.5vw;
+        width: 5.5vw;
+      }
     }
 
     span {
@@ -424,17 +449,31 @@ export default {
       font-size: $font-size--8;
       display: inline-block;
       white-space: nowrap;
+      @include screen('md') {
+
+      }
+
+      @include screen('xs') {
+        font-size:$font-size--9;
+      }
     }
   }
 
   .logo {
-    width: 15vw;
-    height: 15vw;
 
     .tgdn {
       background-image: url("../assets/img/02 90th Year Logo (BLUE).png");
       width: 15vw;
       height: 15vw;
+
+      @include screen('md') { 
+        width: 30vw;
+        height: 30vw;
+      } @include screen('xs') { 
+        width:45vw; 
+        height: 45vw;
+      }
+
     }
   }
 
@@ -446,6 +485,15 @@ export default {
         color: $navy;
         line-height: $font-size--5;
         font-size: $font-size--3;
+
+        @include screen('md') { 
+          font-size:$font-size--5;
+          line-height: 2em;
+        } 
+
+        @include screen('xs') { 
+          font-size:$font-size--7;
+        }
       }
     }
   }
@@ -455,14 +503,43 @@ export default {
   .mac {
     background-image: url("../assets/img/laptop.png");
     width: 100vw;
-    height: 50vw;
+    height: 50vw;  
   }
 
-  .mac-txt {
-    background-image: url("../assets/img/search-laptop.png");
-    width: 100vw;
-    height: 50vw;
+  .collapse-laptop {
+    .mac-wrapper {
+      height: 50vw;
+
+      .mac-txt {
+        background-image: url("../assets/img/search-laptop.png");
+        width: 100vw;
+        height: 50vw;
+      }
+    }
   }
+
+  .laptop-txt-wrapper {
+    height: auto;
+
+    @include screen('md') {
+      position: relative;
+    }
+
+    .blue {
+      @include screen('md') {
+        width: 80vw;
+        // increase by 2
+        font-size: $font-size--5;
+      }
+
+      @include screen('xs') {
+        // increase by 2
+        font-size: $font-size--7;
+      }
+     }
+  }
+
+
 }
 
 .newspaper {
@@ -490,29 +567,59 @@ export default {
       width: 43vw;
       flex-direction: column;
       text-align: justify;
+
+      @include screen('md') {
+        width: 80vw;
+      }
+
+      @include screen('xs') {
+      
+      }
+
       span {
         font-weight: bold;
         font-style: italic;
         font-size: $font-size--3;
+        @include screen('md') {
+          font-size: $font-size--5;
+        }
+
+        @include screen('xs') {
+          font-size: $font-size--7;
+        }
       }
 
       p {
         font-size: $font-size--3;
         line-height: $font-size--5;
+        @include screen('md') {
+          font-size: $font-size--5;
+          line-height: 1.5em;
+        }
+
+        @include screen('xs') {
+          font-size: $font-size--7;
+        }
       }
     }
 
     .prks-img {
       width: 43vw;
+      @include screen('md') { width: 80vw; } @include screen('xs') { }
+
       .tgdn-mob {
         background-position: bottom;
         background-image: url("../assets/img/guidon-min.gif");
         width: 30vw;
+        @include screen('md') { width: 100%;} @include screen('xs') { }
+
       }
 
       .illus {
         background-image: url("../assets/img/Illustartion.png");
         width: 33vw;
+        @include screen('md') { width: 50vw;} @include screen('xs') {width:75vw; }
+
       }
     }
   }
@@ -527,15 +634,39 @@ export default {
       font-size: $font-size--3;
       line-height: $font-size--5;
       color: $navy;
+
+      @include screen('md') {
+        line-height: 2em;
+        font-size:$font-size--5; 
+      } @include screen('xs') { font-size: $font-size--7;}
+
     }
   }
 
   .pc-txt-intro {
     text-align: center;
+
+    @include screen('md') {
+      width: 80vw;
+    }
+
+    @include screen('xs') {
+      width: 75vw;
+    }
+
     p {
       font-size: $font-size--3;
       line-height: $font-size--5;
       color: $navy;
+
+      @include screen('md') {
+        line-height: 2em;
+        font-size:$font-size--5;
+       }
+
+      @include screen('xs') {
+        font-size: $font-size--7;  
+      }
     }
   }
 }
@@ -544,17 +675,39 @@ export default {
     
     .pros {
       background: $light-navy-gradient;
+
+      @include screen('md') {
+        width: 100vw;
+        height: 75vw;
+       } @include screen('xs') { 
+
+       }
+
       span {
         color: white;
         font-size: $font-size--9 * 2; // 10vw
+        @include screen('md') { 
+          font-size: $font-size--9 * 2.5;
+        } @include screen('xs') {
+          font-size: $font-size--9 * 3;
+         }
+
       }
     }
 
     .cons {
       background: $red-gradient;
+      @include screen('md') { width: 100vw;  height: 75vw;} @include screen('xs') { }
+
       span {
         color: white;
         font-size: $font-size--9 * 2; // 10vw
+        @include screen('md') {
+            font-size: $font-size--9 * 2.5;
+         } @include screen('xs') { 
+           font-size: $font-size--9 *3;
+         }
+
       }
     }
 
@@ -563,23 +716,56 @@ export default {
         width: 40vw;
         text-align: center;
         font-size: $font-size--4;
+
+        @include screen('md') { 
+          font-size:$font-size--7;
+          width: 80vw;
+        } 
+        @include screen('xs') {
+          font-size: $font-size--9; 
+        }
+
+      }
+    }
+
+    .pc-img {
+
+      @include screen('md') {
+        width: 100vw;
+       }
+
+      @include screen('xs') {
+      
       }
     }
 
     .pc-img-crds {
+
+      @include screen('md') { justify-content: center;} @include screen('xs') { }
+
+
       span {
         padding: 5%;
         color: $black-alpha;
         font-size:1.25vw;
+
+        @include screen('md') {
+          font-size: $font-size--3;
+        }
+
+        @include screen('xs') {
+          font-size: $font-size--5;
+        }
       }
     }
 }
 
 .future {
+
   .scrn {
     background-image: url('../assets/img/Window.png');
-    width: 100vw;
-    height: 50vw;
+    width: 90vw;
+    height: 90vh;
   }
 
   .scrn-txt {
@@ -587,12 +773,30 @@ export default {
     span {
       font-weight: bold;
       font-size: $font-size--2;
+
+      @include screen('md') {
+        font-size: $font-size--4;
+      }
+
+      @include screen('xs') {
+        font-size: $font-size--6;
+      }
+      
     }
 
     p {
       font-size: $font-size--2;
       line-height: $font-size--5;
       text-align: justify;
+
+      @include screen('md') {
+          font-size: $font-size--4;
+          line-height: 1.5em;
+        }
+
+        @include screen('xs') {
+          font-size: $font-size--6;
+        }
     }
   }
 
@@ -600,18 +804,33 @@ export default {
     justify-content: space-between;
     .ppl--1 {
       background-image: url("../assets/img/Girl.png");
-      bottom: -5%;
+      left: -6%;
       height: 15vw;
       width: 13vw;
+      @include screen('md') {
+        height: 20vw;
+
+      }
+
+      @include screen('xs') {
+      }
     }
 
     .ppl--2 {
       background-image: url("../assets/img/Man.png");
       left: 50%;
-      bottom: -10%;
+      bottom: -8%;
       height: 17vw;
       width: 17vw;
+
+      @include screen('md') { 
+        height: 30vw; 
+      } 
+      @include screen('xs') {
+
+       } 
     }
+
 
     .ppl--3 {
       background-image: url("../assets/img/Girl-1.png");   
@@ -619,8 +838,26 @@ export default {
       right: 2.5%;  
       height: 20vw;
       width: 20vw; 
+
+      @include screen('md') {
+        height: 30vw;
+      }
+
+      @include screen('xs') {
+      }
     }
   }
+}
+
+.menu {
+  height: 50vw;
+  @include screen('md') {
+      height: 70vw;
+    }
+
+    @include screen('xs') {
+      height: 90vw;
+    }
 }
 
 
@@ -640,22 +877,41 @@ export default {
 .final-wrapper {
   .final-txt {
     width: 43vw;
+    @include screen('md') { 
+      width: 80vw; 
+    } 
+    @include screen('xs') { }
+
     p {
       text-align: justify;
 
         font-size: $font-size--2;
         line-height: $font-size--5;
+        @include screen('md') { 
+          font-size: $font-size--4;
+          line-height: 1.5em;
+        } 
+        @include screen('xs') { 
+          font-size: $font-size--6;
+        }
       }
   }
 
-  .final-img {
+  .final-img-wrapper {
     width: 43vw;
+
+    @include screen('md') { 
+      width: 80vw; 
+    } 
+    @include screen('xs') { }
     .news-line {
       background-image:url('../assets/img/NewspaperStack.png');
+      width: 80vw;
     }
 
     .news-digital {
       background-image:url('../assets/img/Comp.png');
+      width: 80vw;
     }
   }
 }
@@ -663,6 +919,12 @@ export default {
 .final-words-wrapper {
   .final-div {
     height: calc(80vw / 3);
+    @include screen('md') { 
+      height: calc(120vw / 2);
+    } 
+    @include screen('xs') {
+      height: 100vw;
+     }
   }
 
   p {
@@ -671,6 +933,14 @@ export default {
     text-align: justify;
     font-size: $font-size--2;
     line-height: $font-size--5;
+
+    @include screen('md') { 
+      font-size: $font-size--5;
+      line-height: 1.5em; 
+    } 
+    @include screen('xs') { 
+      font-size: $font-size--7;
+    }
   }
 }
 

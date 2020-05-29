@@ -80,6 +80,10 @@ section {
 
 .row {
   flex-direction: row;
+
+  @include screen('md') {
+    flex-direction: column;
+  }
 }
 
 .col {
@@ -124,6 +128,15 @@ section {
   color: $navy;
   text-align: justify;
   font-size: $font-size--3;
+
+  @include screen('md') {
+    width: 80vw;
+    font-size: $font-size--5;
+  }
+
+  @include screen('xs') {
+    font-size: $font-size--7;
+  }
 }
 
 .white {
@@ -132,6 +145,15 @@ section {
   color: white;
   text-align: justify;
   font-size: $font-size--3;
+
+  @include screen('md') {
+    width: 80vw;
+    font-size: $font-size--5;
+  }
+
+  @include screen('xs') {
+    font-size: $font-size--7;
+  }
 }
 
 .static {
@@ -256,5 +278,16 @@ section {
   .low-col {
     background-image: url('../assets/img/LowerCollage_optimized.png');
     width: 100vw;
+  }
+}
+
+.lt-pos {
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  @include screen('md') {}
+
+  @include screen('xs') {
+    background-position: left top;
   }
 }
