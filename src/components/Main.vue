@@ -637,8 +637,8 @@ export default {
 
       @include screen('md') {
         line-height: 2em;
-        font-size:$font-size--5; 
-      } @include screen('xs') { font-size: $font-size--7;}
+        font-size:$font-size--4; 
+      } @include screen('xs') { font-size: $font-size--6;}
 
     }
   }
@@ -897,7 +897,9 @@ export default {
       }
   }
 
-  .final-img-wrapper {
+  .final-img {
+    width: 43vw;
+    .final-img-wrapper {
     width: 43vw;
 
     @include screen('md') { 
@@ -906,14 +908,19 @@ export default {
     @include screen('xs') { }
     .news-line {
       background-image:url('../assets/img/NewspaperStack.png');
-      width: 80vw;
+      @include screen('md') { width: 80vw; } @include screen('xs') { }
+
     }
 
     .news-digital {
       background-image:url('../assets/img/Comp.png');
-      width: 80vw;
+      @include screen('md') { width: 80vw; } @include screen('xs') { }
+
     }
   }
+  }
+
+  
 }
 
 .final-words-wrapper {
@@ -923,7 +930,7 @@ export default {
       height: calc(120vw / 2);
     } 
     @include screen('xs') {
-      height: 100vw;
+      height: 95vw;
      }
   }
 
