@@ -277,7 +277,7 @@ section {
 
     @include screen('md') {
       position: absolute;
-      width: 60vw;
+      width: 80vw;
     }
 
     @include screen("xs") {
@@ -314,8 +314,13 @@ section {
       cursor: pointer;
 
       @include screen('md') {
-        width: 9vw;
+        width: 12vw;
         height: 6vw;
+      }
+
+      @include screen('xs') {
+        width: 15vw;
+        height: 10vw;
       }
     }
   }
@@ -336,8 +341,13 @@ section {
       cursor: pointer;
 
       @include screen('md') {
-        width: 4.5vw;
-        height: 5.5vw;
+        width: 5vw;
+        height: 7vw;
+      }
+
+      @include screen('xs') {
+        width: 8vw;
+        height: 12vw;
       }
     }
   }
@@ -353,12 +363,12 @@ section {
       cursor: pointer;
 
       @include screen('md') {
-        height: 40vw;
+        height: 60vw;
         background-size: cover;
       }
 
       @include screen("xs") {
-        height: 70vw;
+        height: 90vw;
       }
     }
   }
@@ -373,11 +383,11 @@ section {
       cursor: pointer;
 
       @include screen('md') {
-        height: 8vw;
+        height: 10vw;
       }
 
       @include screen("xs") {
-        height: 12vw;
+        height: 15vw;
       }
     }
   }

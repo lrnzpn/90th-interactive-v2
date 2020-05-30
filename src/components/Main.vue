@@ -1023,13 +1023,13 @@ export default {
       height: 45vw;
 
       @include screen("md") {
-        width: 60vw;
-        height: 72.5vw;
+        width: 80vw;
+        height: 100vw;
       }
 
       @include screen("xs") {
-        width: 80vw;
-        height: 120vw;
+        width: 100vw;
+        height: 150vw;
       }
     }
 
@@ -1042,11 +1042,11 @@ export default {
         top: 10%;
 
         @include screen("md") {
-          width: 45vw;
+          width: 60vw;
         }
 
         @include screen("xs") {
-          width: 60vw;
+          width: 80vw;
           top: 7.5%;
         }
       }
@@ -1174,11 +1174,11 @@ export default {
     line-height: $font-size--5;
 
     @include screen("md") {
-      font-size: $font-size--5;
+      font-size: $font-size--4;
       line-height: 1.5em;
     }
     @include screen("xs") {
-      font-size: $font-size--7;
+      font-size: $font-size--6;
     }
   }
 }
