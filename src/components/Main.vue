@@ -366,7 +366,7 @@
         #triangle.center
           transition(name="fade" mode="out-in")
             .triangle.triangle-w.bounce(v-if="getActiveSection >= 7 && getActiveSection < 10 || getActiveSection >=12 && getActiveSection < 25")
-            .triangle.triangle-n.bounce(v-else)
+            .triangle.triangle-n.bounce(v-else-if="getActiveSection < 7 || getActiveSection >= 10 && getActiveSection < 12 || getActiveSection >= 25  && getActiveSection < 28" )
 
 
 
