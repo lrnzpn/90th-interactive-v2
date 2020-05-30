@@ -25,12 +25,19 @@ section {
   width: 100%;
 }
 
+#animation-control,
+#final {
+  z-index: -1;
+}
+
+
+
 .mtb-3p {
-  margin: 3% 0
+  margin: 3% 0;
 }
 
 .ml-5p {
-  margin-left: 5%
+  margin-left: 5%;
 }
 
 .wh {
@@ -81,7 +88,7 @@ section {
 .row {
   flex-direction: row;
 
-  @include screen('md') {
+  @include screen("md") {
     flex-direction: column;
   }
 }
@@ -108,6 +115,24 @@ section {
   align-items: flex-end;
 }
 
+.jc-ai-flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.jc-flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.jc-flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .t-75 {
   transition: 0.75s ease all;
 }
@@ -129,12 +154,12 @@ section {
   text-align: justify;
   font-size: $font-size--3;
 
-  @include screen('md') {
+  @include screen("md") {
     width: 80vw;
     font-size: $font-size--5;
   }
 
-  @include screen('xs') {
+  @include screen("xs") {
     font-size: $font-size--7;
   }
 }
@@ -146,12 +171,12 @@ section {
   text-align: justify;
   font-size: $font-size--3;
 
-  @include screen('md') {
+  @include screen("md") {
     width: 80vw;
     font-size: $font-size--5;
   }
 
-  @include screen('xs') {
+  @include screen("xs") {
     font-size: $font-size--7;
   }
 }
@@ -239,30 +264,124 @@ section {
   background-color: $gray;
 }
 
+.mobile-div-wrapper {
+  .mobile-div {
+    width: calc(100vw/3);
+    height: 100%;
+  }
+
+  .main-mob {
+    z-index: 59;
+
+    @include screen('md') {
+      position: absolute;
+      width: 60vw;
+    }
+
+    @include screen("xs") {
+      width: 80vw;
+    }
+  }
+
+  .mob-ft {
+    @include screen('md') {
+      position: absolute;
+      width: 80vw;
+    }
+  }
+
+}
+
+.jc-fe-ai-fs {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+// TGDN MOBILE COMPONENTS
 .iphone-components {
+
   .live-wrapper {
-    .live {
-      background-image: url('../assets/img/phone/Live.png');
+    width: 100%;
+
+    #live {
+      z-index: 99;
+      background-image: url("../assets/img/phone/Live.png");
       width: 5vw;
-      height: 5vw;
+      height: 3vw;
+
+      @include screen('md') {
+        width: 14vw;
+        height: 8vw;
+      }
+    }
+  }
+
+  .save-wrapper {
+    left: 90%;
+    top: 2.5%;
+    position: absolute;
+    z-index: 99;
+
+    @include screen('md') {
+      top: 0%;
+      left: 87%;
+    }
+
+    #save {
+      z-index: 99;
+      background-image: url('../assets/img/phone/ribbon.png');
+      width: 2.5vw;
+      height: 3.5vw;
+
+      @include screen('md') {
+        width: 5.5vw;
+        height: 8vw;
+      }
     }
   }
 
   .article-wrapper {
-    .article {
-      background-image: url('../assets/img/phone/articles.png');
-      width: 20vw;
-      height: 15vw;
+    width: 100%;
+
+    #article {
+      z-index: 69;
+      background-image: url("../assets/img/phone/articles.png");
+      background-position: center top;
+      height: 27.5vw;
+
+      @include screen('md') {
+        height: 40vw;
+        background-size: cover;
+      }
+
+      @include screen("xs") {
+        height: 70vw;
+      }
     }
   }
 
   .chat-wrapper {
-    .chat {
-      background-image: url('../assets/img/phone/Chat.png');
-      width: 20vw;
+    width: 100%;
+
+    #chat {
+      z-index: 99;
+      background-image: url("../assets/img/phone/Chat.png");
       height: 5vw;
+
+      @include screen('md') {
+        height: 8vw;
+      }
+
+      @include screen("xs") {
+        height: 12vw;
+      }
     }
   }
+}
+
+.alpha {
+  opacity: 0.7;
 }
 
 .m-0-auto {
@@ -271,12 +390,12 @@ section {
 
 .final-div {
   .up-col {
-    background-image: url('../assets/img/UpperCollage.png');
+    background-image: url("../assets/img/UpperCollage.png");
     width: 100vw;
   }
 
   .low-col {
-    background-image: url('../assets/img/LowerCollage_optimized.png');
+    background-image: url("../assets/img/LowerCollage_optimized.png");
     width: 100vw;
   }
 }
@@ -285,9 +404,9 @@ section {
   background-position: left center;
   background-repeat: no-repeat;
 
-  @include screen('md') {}
+  @include screen("md") {}
 
-  @include screen('xs') {
+  @include screen("xs") {
     background-position: left top;
   }
 }

@@ -255,16 +255,63 @@
         #mobile.fixed
           transition(name="fade" mode="out-in")
             .mobile-wrapper.blu-bg.wh(v-if="getActiveSection == 25")
-              .mobile.ai-flex-end.absolute
-                .iphone.static
-                  // tgdn mobile components
-                  //- .iphone-components.center.col
-                  //-   .live-wrapper
-                  //-     .live.static
-                  //-   .article-wrapper
-                  //-     .article.static
-                  //-   .chat-wrapper
-                  //-     .chat.static
+              //- 3 columns
+              .mobile-div-wrapper.row.center.wh
+                .mobile-div.center.mob-ft
+                  // livestreaming
+                  transition(name="fade")
+                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="livestream")
+                      span Livestreaming
+                      p
+                        | "[The GUIDON] does livestreaming ...this might be a good way to get access to watches because you’re going to get
+                        | that push notification ...Just one tap and you’re watching already."
+                      span Jacob Uriel R. Quintos,<br> Digital Development Deputy
+                  // breaking articles
+                  transition(name="fade")
+                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="breaking")
+                      span Breaking Articles
+                      p
+                        | "I think one of the main features [is transmitting] all the breaking articles, especially if they are relevant
+                        | because the [article’s popularity] really depends on relevance."
+                      span Bryce R. Rubi,<br> Social Media Manager
+
+                .mobile-div.jc-flex-end.col.main-mob
+                  .ip-wrapper
+                    .iphone-txt.mtb-3p
+                     span(v-on:click="clickReset") Click on the red elements to view the future Guidon app features.
+                    .iphone-wrapper
+                      .iphone.background
+                        .ip-content-wrapper.center
+                          .ip-content.center
+                            .iphone-components.center.col.wh
+                              .live-wrapper
+                                #live.static(v-bind:class="{alpha : liveAlpha}" v-on:click="clickLive")
+                              .article-wrapper
+                                #article.static(v-bind:class="{alpha : articleAlpha}" v-on:click="clickArticle")
+                                .save-wrapper
+                                  #save.static(v-bind:class="{alpha : saveAlpha}" v-on:click="clickSave")
+                              .chat-wrapper
+                                #chat.static(v-bind:class="{alpha : chatAlpha}" v-on:click="clickChat")
+                          
+                .mobile-div.center.mob-ft
+                  // saved articles
+                  transition(name="fade")
+                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="saved")
+                      span Saved Articles
+                      p
+                        | "Having a feature that can save articles, because the website we have now, you can only save it by having the
+                        | tab open and a lot of our content is timeless in nature"
+                      span Jason T. Mariano,<br> Design Executive Editor
+
+                  transition(name="fade")
+                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="forum")
+                      span Chat Forum
+                      p
+                        | "I think it would be good if there was a forum portion.
+                        | The only time the reader really has something to say is when our work is already done."
+                      span Carmela Masiglat,<br> Graphic Design Editor
+                    
+
         #final.fixed
           .final.center.wh
             transition(name="fade" mode="out-in")
@@ -346,7 +393,14 @@ export default {
   name: "Main",
   data() {
     return {
-      
+      liveAlpha: false,
+      articleAlpha: false,
+      saveAlpha: false,
+      chatAlpha: false,
+      livestream: false,
+      breaking: false,
+      saved: false,
+      forum: false
     };
   },
   computed: {
@@ -354,7 +408,6 @@ export default {
       return store.active;
     }
   },
-
   methods: {
     // detect active on scroll
     scroll() {
@@ -365,7 +418,7 @@ export default {
       ) {
         let el = this.$refs[`animate--${i}`];
         let rect = el.getBoundingClientRect();
-        console.log(`Active - ${store.active} : ${rect.top}`);
+        // console.log(`Active - ${store.active} : ${rect.top}`);
         if (rect.top > 0) {
           store.active = i;
           break;
@@ -385,6 +438,62 @@ export default {
           // So lets not show it :)
         }
       }
+    },
+    clickLive() {
+      // enable alpha class
+      this.articleAlpha = true;
+      this.liveAlpha = false;
+      this.chatAlpha = true;
+      this.saveAlpha = true;
+      // display appropriate text
+      this.livestream = true;
+      this.breaking = false;
+      this.saved = false;
+      this.forum = false;
+    },
+    clickArticle() {
+      this.articleAlpha = false;
+      this.liveAlpha = true;
+      this.chatAlpha = true;
+      this.saveAlpha = true;
+
+      this.livestream = false;
+      this.breaking = true;
+      this.saved = false;
+      this.forum = false;
+    },
+    clickSave() {
+      this.articleAlpha = true;
+      this.liveAlpha = true;
+      this.chatAlpha = true;
+      this.saveAlpha = false;
+
+      this.livestream = false;
+      this.breaking = false;
+      this.saved = true;
+      this.forum = false;
+    },
+    clickChat() {
+      this.articleAlpha = true;
+      this.liveAlpha = true;
+      this.chatAlpha = false;
+      this.saveAlpha = true;
+
+      this.livestream = false;
+      this.breaking = false;
+      this.saved = false;
+      this.forum = true;
+    },
+    clickReset() {
+      this.articleAlpha = false;
+      this.liveAlpha = false;
+      this.chatAlpha = false;
+      this.saveAlpha = false;
+
+      this.livestream = false;
+      this.breaking = false;
+      this.saved = false;
+      this.forum = false;
     }
   },
   mounted() {
@@ -401,12 +510,12 @@ export default {
   height: calc(100vh / 3);
 }
 
-#search {
-  z-index: 5;
+#laptop {
+  z-index: -1;
 }
 
-#perks {
-  z-index: 1;
+#fixed {
+  z-index: 7;
 }
 
 .srch-bx {
@@ -421,24 +530,22 @@ export default {
     max-height: 130px;
     max-width: 60vw;
 
-    @include screen('md') { 
-
-    } @include screen('xs') { 
+    @include screen("md") {
+    }
+    @include screen("xs") {
       width: 18vw;
       height: 15vw;
     }
-
 
     .search {
       height: 3.5vw;
       width: 3.5vw;
       background-image: url("../assets/img/search.png");
 
-      @include screen('md') {
-
+      @include screen("md") {
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
         height: 5.5vw;
         width: 5.5vw;
       }
@@ -449,31 +556,29 @@ export default {
       font-size: $font-size--8;
       display: inline-block;
       white-space: nowrap;
-      @include screen('md') {
-
+      @include screen("md") {
       }
 
-      @include screen('xs') {
-        font-size:$font-size--9;
+      @include screen("xs") {
+        font-size: $font-size--9;
       }
     }
   }
 
   .logo {
-
     .tgdn {
       background-image: url("../assets/img/02 90th Year Logo (BLUE).png");
       width: 15vw;
       height: 15vw;
 
-      @include screen('md') { 
+      @include screen("md") {
         width: 30vw;
         height: 30vw;
-      } @include screen('xs') { 
-        width:45vw; 
+      }
+      @include screen("xs") {
+        width: 45vw;
         height: 45vw;
       }
-
     }
   }
 
@@ -486,13 +591,13 @@ export default {
         line-height: $font-size--5;
         font-size: $font-size--3;
 
-        @include screen('md') { 
-          font-size:$font-size--5;
+        @include screen("md") {
+          font-size: $font-size--5;
           line-height: 2em;
-        } 
+        }
 
-        @include screen('xs') { 
-          font-size:$font-size--7;
+        @include screen("xs") {
+          font-size: $font-size--7;
         }
       }
     }
@@ -503,7 +608,7 @@ export default {
   .mac {
     background-image: url("../assets/img/laptop.png");
     width: 100vw;
-    height: 50vw;  
+    height: 50vw;
   }
 
   .collapse-laptop {
@@ -521,25 +626,23 @@ export default {
   .laptop-txt-wrapper {
     height: auto;
 
-    @include screen('md') {
+    @include screen("md") {
       position: relative;
     }
 
     .blue {
-      @include screen('md') {
+      @include screen("md") {
         width: 80vw;
         // increase by 2
         font-size: $font-size--5;
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
         // increase by 2
         font-size: $font-size--7;
       }
-     }
+    }
   }
-
-
 }
 
 .newspaper {
@@ -568,23 +671,22 @@ export default {
       flex-direction: column;
       text-align: justify;
 
-      @include screen('md') {
+      @include screen("md") {
         width: 80vw;
       }
 
-      @include screen('xs') {
-      
+      @include screen("xs") {
       }
 
       span {
         font-weight: bold;
         font-style: italic;
         font-size: $font-size--3;
-        @include screen('md') {
+        @include screen("md") {
           font-size: $font-size--5;
         }
 
-        @include screen('xs') {
+        @include screen("xs") {
           font-size: $font-size--7;
         }
       }
@@ -592,12 +694,12 @@ export default {
       p {
         font-size: $font-size--3;
         line-height: $font-size--5;
-        @include screen('md') {
+        @include screen("md") {
           font-size: $font-size--5;
           line-height: 1.5em;
         }
 
-        @include screen('xs') {
+        @include screen("xs") {
           font-size: $font-size--7;
         }
       }
@@ -605,21 +707,32 @@ export default {
 
     .prks-img {
       width: 43vw;
-      @include screen('md') { width: 80vw; } @include screen('xs') { }
+      @include screen("md") {
+        width: 80vw;
+      }
+      @include screen("xs") {
+      }
 
       .tgdn-mob {
         background-position: bottom;
         background-image: url("../assets/img/guidon-min.gif");
         width: 30vw;
-        @include screen('md') { width: 100%;} @include screen('xs') { }
-
+        @include screen("md") {
+          width: 100%;
+        }
+        @include screen("xs") {
+        }
       }
 
       .illus {
         background-image: url("../assets/img/Illustartion.png");
         width: 33vw;
-        @include screen('md') { width: 50vw;} @include screen('xs') {width:75vw; }
-
+        @include screen("md") {
+          width: 50vw;
+        }
+        @include screen("xs") {
+          width: 75vw;
+        }
       }
     }
   }
@@ -635,22 +748,24 @@ export default {
       line-height: $font-size--5;
       color: $navy;
 
-      @include screen('md') {
+      @include screen("md") {
         line-height: 2em;
-        font-size:$font-size--4; 
-      } @include screen('xs') { font-size: $font-size--6;}
-
+        font-size: $font-size--4;
+      }
+      @include screen("xs") {
+        font-size: $font-size--6;
+      }
     }
   }
 
   .pc-txt-intro {
     text-align: center;
 
-    @include screen('md') {
+    @include screen("md") {
       width: 80vw;
     }
 
-    @include screen('xs') {
+    @include screen("xs") {
       width: 75vw;
     }
 
@@ -659,111 +774,113 @@ export default {
       line-height: $font-size--5;
       color: $navy;
 
-      @include screen('md') {
+      @include screen("md") {
         line-height: 2em;
-        font-size:$font-size--5;
-       }
+        font-size: $font-size--5;
+      }
 
-      @include screen('xs') {
-        font-size: $font-size--7;  
+      @include screen("xs") {
+        font-size: $font-size--7;
       }
     }
   }
 }
 
 .pc-wrapper {
-    
-    .pros {
-      background: $light-navy-gradient;
+  .pros {
+    background: $light-navy-gradient;
 
-      @include screen('md') {
-        width: 100vw;
-        height: 75vw;
-       } @include screen('xs') { 
-
-       }
-
-      span {
-        color: white;
-        font-size: $font-size--9 * 2; // 10vw
-        @include screen('md') { 
-          font-size: $font-size--9 * 2.5;
-        } @include screen('xs') {
-          font-size: $font-size--9 * 3;
-         }
-
-      }
+    @include screen("md") {
+      width: 100vw;
+      height: 75vw;
+    }
+    @include screen("xs") {
     }
 
-    .cons {
-      background: $red-gradient;
-      @include screen('md') { width: 100vw;  height: 75vw;} @include screen('xs') { }
-
-      span {
-        color: white;
-        font-size: $font-size--9 * 2; // 10vw
-        @include screen('md') {
-            font-size: $font-size--9 * 2.5;
-         } @include screen('xs') { 
-           font-size: $font-size--9 *3;
-         }
-
+    span {
+      color: white;
+      font-size: $font-size--9 * 2; // 10vw
+      @include screen("md") {
+        font-size: $font-size--9 * 2.5;
+      }
+      @include screen("xs") {
+        font-size: $font-size--9 * 3;
       }
     }
+  }
 
-    .pc-txt {
-      span {
-        width: 40vw;
-        text-align: center;
-        font-size: $font-size--4;
-
-        @include screen('md') { 
-          font-size:$font-size--7;
-          width: 80vw;
-        } 
-        @include screen('xs') {
-          font-size: $font-size--9; 
-        }
-
-      }
+  .cons {
+    background: $red-gradient;
+    @include screen("md") {
+      width: 100vw;
+      height: 75vw;
+    }
+    @include screen("xs") {
     }
 
-    .pc-img {
-
-      @include screen('md') {
-        width: 100vw;
-       }
-
-      @include screen('xs') {
-      
+    span {
+      color: white;
+      font-size: $font-size--9 * 2; // 10vw
+      @include screen("md") {
+        font-size: $font-size--9 * 2.5;
+      }
+      @include screen("xs") {
+        font-size: $font-size--9 * 3;
       }
     }
+  }
 
-    .pc-img-crds {
+  .pc-txt {
+    span {
+      width: 40vw;
+      text-align: center;
+      font-size: $font-size--4;
 
-      @include screen('md') { justify-content: center;} @include screen('xs') { }
-
-
-      span {
-        padding: 5%;
-        color: $black-alpha;
-        font-size:1.25vw;
-
-        @include screen('md') {
-          font-size: $font-size--3;
-        }
-
-        @include screen('xs') {
-          font-size: $font-size--5;
-        }
+      @include screen("md") {
+        font-size: $font-size--7;
+        width: 80vw;
+      }
+      @include screen("xs") {
+        font-size: $font-size--9;
       }
     }
+  }
+
+  .pc-img {
+    @include screen("md") {
+      width: 100vw;
+    }
+
+    @include screen("xs") {
+    }
+  }
+
+  .pc-img-crds {
+    @include screen("md") {
+      justify-content: center;
+    }
+    @include screen("xs") {
+    }
+
+    span {
+      padding: 5%;
+      color: $black-alpha;
+      font-size: 1.25vw;
+
+      @include screen("md") {
+        font-size: $font-size--3;
+      }
+
+      @include screen("xs") {
+        font-size: $font-size--5;
+      }
+    }
+  }
 }
 
 .future {
-
   .scrn {
-    background-image: url('../assets/img/Window.png');
+    background-image: url("../assets/img/Window.png");
     width: 90vw;
     height: 90vh;
   }
@@ -774,14 +891,13 @@ export default {
       font-weight: bold;
       font-size: $font-size--2;
 
-      @include screen('md') {
+      @include screen("md") {
         font-size: $font-size--4;
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
         font-size: $font-size--6;
       }
-      
     }
 
     p {
@@ -789,14 +905,14 @@ export default {
       line-height: $font-size--5;
       text-align: justify;
 
-      @include screen('md') {
-          font-size: $font-size--4;
-          line-height: 1.5em;
-        }
+      @include screen("md") {
+        font-size: $font-size--4;
+        line-height: 1.5em;
+      }
 
-        @include screen('xs') {
-          font-size: $font-size--6;
-        }
+      @include screen("xs") {
+        font-size: $font-size--6;
+      }
     }
   }
 
@@ -807,12 +923,11 @@ export default {
       left: -6%;
       height: 15vw;
       width: 13vw;
-      @include screen('md') {
+      @include screen("md") {
         height: 20vw;
-
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
       }
     }
 
@@ -823,27 +938,25 @@ export default {
       height: 17vw;
       width: 17vw;
 
-      @include screen('md') { 
-        height: 30vw; 
-      } 
-      @include screen('xs') {
-
-       } 
+      @include screen("md") {
+        height: 30vw;
+      }
+      @include screen("xs") {
+      }
     }
 
-
     .ppl--3 {
-      background-image: url("../assets/img/Girl-1.png");   
-      bottom: .5%;
-      right: 2.5%;  
+      background-image: url("../assets/img/Girl-1.png");
+      bottom: 0.5%;
+      right: 2.5%;
       height: 20vw;
-      width: 20vw; 
+      width: 20vw;
 
-      @include screen('md') {
+      @include screen("md") {
         height: 30vw;
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
       }
     }
   }
@@ -851,87 +964,173 @@ export default {
 
 .menu {
   height: 50vw;
-  @include screen('md') {
-      height: 70vw;
-    }
+  @include screen("md") {
+    height: 70vw;
+  }
 
-    @include screen('xs') {
-      height: 90vw;
-    }
+  @include screen("xs") {
+    height: 90vw;
+  }
 }
 
+.mobile-wrapper {
+  .iphone-txt {
+    text-align: center;
 
-.iphone {
-  background-image: url("../assets/img/Phone.png");
-  background-position: bottom;
-  width: 60vw;
-  height: 525px;
+    span {
+      font-size: 1.75vw;
+      color: white;
 
-  .iphone-components {
-    width: 20vw;
-    height: 100%;
-    margin: 0 auto;
+      @include screen("md") {
+        font-size: $font-size--3;
+      }
+
+      @include screen("xs") {
+        font-size: $font-size--5;
+      }
+    }
+  }
+
+  .iphone-wrapper {
+    .iphone {
+      background-image: url("../assets/img/Phone.png");
+      background-position: top center;
+      width: calc(100vw / 3);
+      height: 45vw;
+
+      @include screen("md") {
+        width: 60vw;
+        height: 72.5vw;
+      }
+
+      @include screen("xs") {
+        width: 80vw;
+        height: 120vw;
+      }
+    }
+
+    .ip-content-wrapper {
+      height: 100%;
+
+      .ip-content {
+        height: 75%;
+        width: 25vw;
+        top: 10%;
+
+        @include screen("md") {
+          width: 45vw;
+        }
+
+        @include screen("xs") {
+          width: 60vw;
+          top: 7.5%;
+        }
+      }
+    }
+  }
+
+  .mobile-txt-div {
+    color: white;
+    width: 30vw;
+    transition: 0.5s all ease;
+    @include screen("md") {
+      width: 100%;
+      justify-content: flex-start;
+      top: 8.5%;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.75vw;
+
+      @include screen("md") {
+        font-size: $font-size--3;
+      }
+
+      @include screen("xs") {
+        font-size: $font-size--5;
+      }
+    }
+
+    p {
+      font-size: 1.75vw;
+      text-align: justify;
+
+      @include screen("md") {
+        font-size: $font-size--3;
+      }
+
+      @include screen("xs") {
+        font-size: $font-size--5;
+      }
+    }
   }
 }
 
 .final-wrapper {
   .final-txt {
     width: 43vw;
-    @include screen('md') { 
-      width: 80vw; 
-    } 
-    @include screen('xs') { }
+    @include screen("md") {
+      width: 80vw;
+    }
+    @include screen("xs") {
+    }
 
     p {
       text-align: justify;
 
-        font-size: $font-size--2;
-        line-height: $font-size--5;
-        @include screen('md') { 
-          font-size: $font-size--4;
-          line-height: 1.5em;
-        } 
-        @include screen('xs') { 
-          font-size: $font-size--6;
-        }
+      font-size: $font-size--2;
+      line-height: $font-size--5;
+      @include screen("md") {
+        font-size: $font-size--4;
+        line-height: 1.5em;
       }
+      @include screen("xs") {
+        font-size: $font-size--6;
+      }
+    }
   }
 
   .final-img {
     width: 43vw;
     .final-img-wrapper {
-    width: 43vw;
+      width: 43vw;
 
-    @include screen('md') { 
-      width: 80vw; 
-    } 
-    @include screen('xs') { }
-    .news-line {
-      background-image:url('../assets/img/NewspaperStack.png');
-      @include screen('md') { width: 80vw; } @include screen('xs') { }
+      @include screen("md") {
+        width: 80vw;
+      }
+      @include screen("xs") {
+      }
+      .news-line {
+        background-image: url("../assets/img/NewspaperStack.png");
+        @include screen("md") {
+          width: 80vw;
+        }
+        @include screen("xs") {
+        }
+      }
 
-    }
-
-    .news-digital {
-      background-image:url('../assets/img/Comp.png');
-      @include screen('md') { width: 80vw; } @include screen('xs') { }
-
+      .news-digital {
+        background-image: url("../assets/img/Comp.png");
+        @include screen("md") {
+          width: 80vw;
+        }
+        @include screen("xs") {
+        }
+      }
     }
   }
-  }
-
-  
 }
 
 .final-words-wrapper {
   .final-div {
     height: calc(80vw / 3);
-    @include screen('md') { 
+    @include screen("md") {
       height: calc(120vw / 2);
-    } 
-    @include screen('xs') {
+    }
+    @include screen("xs") {
       height: 95vw;
-     }
+    }
   }
 
   p {
@@ -941,14 +1140,13 @@ export default {
     font-size: $font-size--2;
     line-height: $font-size--5;
 
-    @include screen('md') { 
+    @include screen("md") {
       font-size: $font-size--5;
-      line-height: 1.5em; 
-    } 
-    @include screen('xs') { 
+      line-height: 1.5em;
+    }
+    @include screen("xs") {
       font-size: $font-size--7;
     }
   }
 }
-
 </style>
