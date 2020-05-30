@@ -365,8 +365,8 @@
                   .low-col.static
         #triangle.center
           transition(name="fade" mode="out-in")
-            .triangle-w(v-if="getActiveSection >= 7 && getActiveSection < 10 || getActiveSection >=12 && getActiveSection < 25")
-            .triangle-n(v-else)
+            .triangle.triangle-w.bounce(v-if="getActiveSection >= 7 && getActiveSection < 10 || getActiveSection >=12 && getActiveSection < 25")
+            .triangle.triangle-n.bounce(v-else)
 
 
 
@@ -1062,8 +1062,10 @@ export default {
       width: 80vw;
 
       @include screen("md") {
-        background-color: $navy-alpha;
+        background-color: #2c4396;
         padding: 2.5% 5% 5% 5%;
+        border-radius: 10px;
+        width: 75vw;
       }
     }
 
