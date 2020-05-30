@@ -164,7 +164,7 @@
                   transition(name="fade" mode="out-in")
                     .arms.background.absolute(v-if="getActiveSection == 17")
                       .pc-txt.center.absolute
-                        span Articles are more easily archieved digitally.
+                        span Articles are more easily archived digitally.
                       .pc-img-crds.absolute.jc-ai-flex-end
                         span Photo by Zach Garcia
             transition(name="fade" mode="out-in")
