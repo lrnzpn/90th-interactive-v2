@@ -363,6 +363,10 @@
                     | to release content.
                 .final-div
                   .low-col.static
+        #triangle.center
+          transition(name="fade" mode="out-in")
+            .triangle-w(v-if="getActiveSection >= 7 && getActiveSection < 10 || getActiveSection >=12 && getActiveSection < 25")
+            .triangle-n(v-else)
 
 
 
