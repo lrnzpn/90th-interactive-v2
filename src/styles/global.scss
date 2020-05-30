@@ -265,6 +265,8 @@ section {
 }
 
 .mobile-div-wrapper {
+
+
   .mobile-div {
     width: calc(100vw/3);
     height: 100%;
@@ -286,7 +288,7 @@ section {
   .mob-ft {
     @include screen('md') {
       position: absolute;
-      width: 80vw;
+      width: 100vw;
     }
   }
 
@@ -309,34 +311,33 @@ section {
       background-image: url("../assets/img/phone/Live.png");
       width: 5vw;
       height: 3vw;
+      cursor: pointer;
 
       @include screen('md') {
-        width: 14vw;
-        height: 8vw;
+        width: 9vw;
+        height: 6vw;
       }
     }
   }
 
   .save-wrapper {
     left: 90%;
-    top: 2.5%;
+    top: 0%;
     position: absolute;
     z-index: 99;
 
-    @include screen('md') {
-      top: 0%;
-      left: 87%;
-    }
+    @include screen('md') {}
 
     #save {
       z-index: 99;
       background-image: url('../assets/img/phone/ribbon.png');
       width: 2.5vw;
       height: 3.5vw;
+      cursor: pointer;
 
       @include screen('md') {
-        width: 5.5vw;
-        height: 8vw;
+        width: 4.5vw;
+        height: 5.5vw;
       }
     }
   }
@@ -349,6 +350,7 @@ section {
       background-image: url("../assets/img/phone/articles.png");
       background-position: center top;
       height: 27.5vw;
+      cursor: pointer;
 
       @include screen('md') {
         height: 40vw;
@@ -368,6 +370,7 @@ section {
       z-index: 99;
       background-image: url("../assets/img/phone/Chat.png");
       height: 5vw;
+      cursor: pointer;
 
       @include screen('md') {
         height: 8vw;
@@ -409,4 +412,68 @@ section {
   @include screen("xs") {
     background-position: left top;
   }
+}
+
+.ctrl {
+  z-index: 199;
+  height: auto;
+
+  button {
+    color: white;
+    background: transparent;
+    font-family: "Tiempos Headline Regular", serif;
+    border: none;
+    font-size: 1em;
+    opacity: 0.5;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 2.5%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// X btn 
+
+.close-wrap {
+  width: 100%;
+}
+
+.close {
+  width: 1.5em;
+  height: 1.5em;
+  display: none;
+  opacity: 0;
+
+  @include screen('md') {
+    opacity: 0.3;
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.close:hover {
+  @include screen('md') {
+    opacity: 1;
+  }
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 1.5em;
+  width: 2px;
+  background-color: white;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
 }

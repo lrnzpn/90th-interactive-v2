@@ -255,30 +255,38 @@
         #mobile.fixed
           transition(name="fade" mode="out-in")
             .mobile-wrapper.blu-bg.wh(v-if="getActiveSection == 25")
+              .ctrl.absolute.jc-flex-start
+                button(v-on:click="clickReset") Reset App
               //- 3 columns
               .mobile-div-wrapper.row.center.wh
                 .mobile-div.center.mob-ft
                   // livestreaming
                   transition(name="fade")
-                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="livestream")
-                      span Livestreaming
-                      p
-                        | "[The GUIDON] does livestreaming ...this might be a good way to get access to watches because you’re going to get
-                        | that push notification ...Just one tap and you’re watching already."
-                      span Jacob Uriel R. Quintos,<br> Digital Development Deputy
+                    .mobile-txt-div.center.absolute(v-if="livestream")
+                      .mb-txt-wrap.ai-flex-start.col
+                        .close-wrap.jc-flex-end
+                          .close(v-on:click="closeModal")
+                        span Livestreaming
+                        p
+                          | "[The GUIDON] does livestreaming ...this might be a good way to get access to watches because you’re going to get
+                          | that push notification ...Just one tap and you’re watching already."
+                        span Jacob Uriel R. Quintos,<br> Digital Development Deputy
                   // breaking articles
                   transition(name="fade")
-                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="breaking")
-                      span Breaking Articles
-                      p
-                        | "I think one of the main features [is transmitting] all the breaking articles, especially if they are relevant
-                        | because the [article’s popularity] really depends on relevance."
-                      span Bryce R. Rubi,<br> Social Media Manager
+                    .mobile-txt-div.center.absolute(v-if="breaking")
+                      .mb-txt-wrap.ai-flex-start.col
+                        .close-wrap.jc-flex-end
+                          .close(v-on:click="closeModal")
+                        span Breaking Articles
+                        p
+                          | "I think one of the main features [is transmitting] all the breaking articles, especially if they are relevant
+                          | because the [article’s popularity] really depends on relevance."
+                        span Bryce R. Rubi,<br> Social Media Manager
 
                 .mobile-div.jc-flex-end.col.main-mob
                   .ip-wrapper
                     .iphone-txt.mtb-3p
-                     span(v-on:click="clickReset") Click on the red elements to view the future Guidon app features.
+                     span Click on the red elements to view the future Guidon app features.
                     .iphone-wrapper
                       .iphone.background
                         .ip-content-wrapper.center
@@ -296,21 +304,26 @@
                 .mobile-div.center.mob-ft
                   // saved articles
                   transition(name="fade")
-                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="saved")
-                      span Saved Articles
-                      p
-                        | "Having a feature that can save articles, because the website we have now, you can only save it by having the
-                        | tab open and a lot of our content is timeless in nature"
-                      span Jason T. Mariano,<br> Design Executive Editor
+                    .mobile-txt-div.center.absolute(v-if="saved")
+                      .mb-txt-wrap.ai-flex-start.col
+                        .close-wrap.jc-flex-end
+                            .close(v-on:click="closeModal")
+                        span Saved Articles
+                        p
+                          | "Having a feature that can save articles, because the website we have now, you can only save it by having the
+                          | tab open and a lot of our content is timeless in nature"
+                        span Jason T. Mariano,<br> Design Executive Editor
 
                   transition(name="fade")
-                    .mobile-txt-div.col.ai-flex-start.absolute(v-if="forum")
-                      span Chat Forum
-                      p
-                        | "I think it would be good if there was a forum portion.
-                        | The only time the reader really has something to say is when our work is already done."
-                      span Carmela Masiglat,<br> Graphic Design Editor
-                    
+                    .mobile-txt-div.center.absolute(v-if="forum")
+                      .mb-txt-wrap.ai-flex-start.col
+                        .close-wrap.jc-flex-end
+                          .close(v-on:click="closeModal")
+                        span Chat Forum
+                        p
+                          | "I think it would be good if there was a forum portion.
+                          | The only time the reader really has something to say is when our work is already done."
+                        span Carmela Masiglat,<br> Graphic Design Editor                    
 
         #final.fixed
           .final.center.wh
@@ -333,22 +346,23 @@
                   transition(name="fade" mode="out-in")
                     .final-img-wrapper.absolute(v-if="getActiveSection == 27")
                       .news-digital.static.m-0-auto.w-40vw
-              transition(name="fade" mode="out-in")
-                .final-words-wrapper.center.col(v-if="getActiveSection == 28")
-                  .final-div
-                    .up-col.static
-                  .final-div.center.col
-                    p 
-                      | Yet, amidst all the hype about The GUIDON’s digital platform, Soriano and Gonzalez both agree that there will always be a
-                      | role for print releases, especially for issues that correspond to a specific theme. They believe that special releases have
-                      | the potential to make more of an impact if they are planned out with a specific purpose in mind.
-                    p
-                      | While social media trends are ever evolving, the printed format remains reliable
-                      | for its constancy. Soriano states that while online content is currently more
-                      | preferred, print releases provide a “safety net” and the assurance that the publication is able
-                      | to release content.
-                  .final-div
-                    .low-col.static
+
+            transition(name="fade" mode="out-in")
+              .final-words-wrapper.center.col(v-if="getActiveSection == 28")
+                .final-div
+                  .up-col.static
+                .final-div.center.col
+                  p 
+                    | Yet, amidst all the hype about The GUIDON’s digital platform, Soriano and Gonzalez both agree that there will always be a
+                    | role for print releases, especially for issues that correspond to a specific theme. They believe that special releases have
+                    | the potential to make more of an impact if they are planned out with a specific purpose in mind.
+                  p
+                    | While social media trends are ever evolving, the printed format remains reliable
+                    | for its constancy. Soriano states that while online content is currently more
+                    | preferred, print releases provide a “safety net” and the assurance that the publication is able
+                    | to release content.
+                .final-div
+                  .low-col.static
 
 
 
@@ -490,6 +504,12 @@ export default {
       this.chatAlpha = false;
       this.saveAlpha = false;
 
+      this.livestream = false;
+      this.breaking = false;
+      this.saved = false;
+      this.forum = false;
+    },
+    closeModal() {
       this.livestream = false;
       this.breaking = false;
       this.saved = false;
@@ -1033,10 +1053,19 @@ export default {
     color: white;
     width: 30vw;
     transition: 0.5s all ease;
+
+    .mb-txt-wrap {
+      width: 80vw;
+
+      @include screen("md") {
+        background-color: $navy-alpha;
+        padding: 2.5% 5% 5% 5%;
+      }
+    }
+
     @include screen("md") {
-      width: 100%;
-      justify-content: flex-start;
-      top: 8.5%;
+      width: 100vw;
+      z-index: 69;
     }
 
     span {
