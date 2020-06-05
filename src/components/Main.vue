@@ -1008,6 +1008,7 @@ export default {
       }
 
       @include screen("xs") {
+        height: 25vw !important;
       }
     }
 
@@ -1026,19 +1027,19 @@ export default {
         height: 30vw;
       }
 
-      @include screen("xs") {
-      }
+      @include screen("xs") { height: 28vw !important; }
+
     }
 
     .ppl--3 {
       background-image: url("../assets/img/Girl-1.png");
       bottom: 0.5%;
       right: 2.5%;
-      height: 20vw;
+      height: 18vw;
       width: 20vw;
 
       @media screen and (max-width: 991px) and (max-height: 900px) {
-        height: 20vw !important;
+        height: 18vw !important;
       }
 
       @include screen("md") {
@@ -1046,6 +1047,7 @@ export default {
       }
 
       @include screen("xs") {
+        height: 30vw !important;
       }
     }
   }
