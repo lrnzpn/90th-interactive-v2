@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./mixins";
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
 * {
   text-decoration: none;
@@ -11,7 +12,8 @@
 
 html,
 body {
-  font-family: "Tiempos Headline Regular", serif;
+  font-family: 'Manrope',
+    sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -29,8 +31,6 @@ section {
 #final {
   z-index: -1;
 }
-
-
 
 .mtb-3p {
   margin: 3% 0;
@@ -266,17 +266,15 @@ section {
 }
 
 .mobile-div-wrapper {
-
-
   .mobile-div {
-    width: calc(100vw/3);
+    width: calc(100vw / 3);
     height: 100%;
   }
 
   .main-mob {
     z-index: 59;
 
-    @include screen('md') {
+    @include screen("md") {
       position: absolute;
       width: 80vw;
     }
@@ -287,12 +285,11 @@ section {
   }
 
   .mob-ft {
-    @include screen('md') {
+    @include screen("md") {
       position: absolute;
       width: 100vw;
     }
   }
-
 }
 
 .jc-fe-ai-fs {
@@ -303,23 +300,32 @@ section {
 
 // TGDN MOBILE COMPONENTS
 .iphone-components {
-
   .live-wrapper {
     width: 100%;
 
     #live {
       z-index: 99;
       background-image: url("../assets/img/phone/Live.png");
-      width: 5vw;
-      height: 3vw;
+      width: 4vw;
+      height: 2vw;
       cursor: pointer;
 
-      @include screen('md') {
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 3vw !important;
+        width: 5vw !important;
+      }
+
+      @media screen and (max-width: 576px) and (max-height: 900px) {
+        height: 6vw !important;
+        width: 9vw !important;
+      }
+
+      @include screen("md") {
         width: 12vw;
         height: 6vw;
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
         width: 15vw;
         height: 10vw;
       }
@@ -332,21 +338,29 @@ section {
     position: absolute;
     z-index: 99;
 
-    @include screen('md') {}
-
     #save {
       z-index: 99;
-      background-image: url('../assets/img/phone/ribbon.png');
+      background-image: url("../assets/img/phone/ribbon.png");
       width: 2.5vw;
       height: 3.5vw;
       cursor: pointer;
 
-      @include screen('md') {
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 4.5vw !important;
+        width: 3vw !important;
+      }
+
+      @media screen and (max-width: 576px) and (max-height: 900px) {
+        height: 6vw !important;
+        width: 4.5vw !important;
+      }
+
+      @include screen("md") {
         width: 5vw;
         height: 7vw;
       }
 
-      @include screen('xs') {
+      @include screen("xs") {
         width: 8vw;
         height: 12vw;
       }
@@ -360,10 +374,19 @@ section {
       z-index: 69;
       background-image: url("../assets/img/phone/articles.png");
       background-position: center top;
-      height: 27.5vw;
+      height: 26vw;
       cursor: pointer;
 
-      @include screen('md') {
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 30vw !important;
+      }
+
+      @media screen and (max-width: 576px) and (max-height: 900px) {
+        height: 45vw !important;
+      }
+
+
+      @include screen("md") {
         height: 60vw;
         background-size: cover;
       }
@@ -380,10 +403,18 @@ section {
     #chat {
       z-index: 99;
       background-image: url("../assets/img/phone/Chat.png");
-      height: 5vw;
+      height: 4.5vw;
       cursor: pointer;
 
-      @include screen('md') {
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 5vw !important;
+      }
+
+      @media screen and (max-width: 576px) and (max-height: 900px) {
+        height: 8vw !important;
+      }
+
+      @include screen("md") {
         height: 10vw;
       }
 
@@ -415,13 +446,13 @@ section {
 }
 
 .lt-pos {
-  background-position: left center;
+  background-position: left top;
   background-repeat: no-repeat;
 
   @include screen("md") {}
 
   @include screen("xs") {
-    background-position: left top;
+    // background-position: left top;
   }
 }
 
@@ -429,16 +460,16 @@ section {
   z-index: 199;
   height: auto;
 
-  button {
+  span {
     color: white;
     background: transparent;
     font-family: "Tiempos Headline Regular", serif;
     border: none;
-    font-size: 1em;
+    font-size: 14px;
     opacity: 0.5;
     cursor: pointer;
     text-decoration: underline;
-    padding: 2.5%;
+    padding: 1%;
 
     &:hover {
       opacity: 1;
@@ -446,7 +477,7 @@ section {
   }
 }
 
-// X btn 
+// X btn
 
 .close-wrap {
   width: 100%;
@@ -458,7 +489,7 @@ section {
   display: none;
   opacity: 0;
 
-  @include screen('md') {
+  @include screen("md") {
     opacity: 0.3;
     display: block;
     cursor: pointer;
@@ -466,7 +497,7 @@ section {
 }
 
 .close:hover {
-  @include screen('md') {
+  @include screen("md") {
     opacity: 1;
   }
 }
@@ -475,7 +506,7 @@ section {
 .close:after {
   position: absolute;
   left: 15px;
-  content: ' ';
+  content: " ";
   height: 1em;
   width: 2px;
   background-color: white;
@@ -531,4 +562,8 @@ section {
 .bounce {
   -webkit-animation-name: bounce;
   animation-name: bounce;
+}
+
+.outro {
+  width: 100% !important;
 }

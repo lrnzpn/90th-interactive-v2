@@ -28,9 +28,9 @@
               .srch-bx.center(v-if="getActiveSection == 3")
                 .cc
                   div
-                    span Written by: <br> Jasey C. Cruz and Enrique B.Halili
+                    span Written by <br> Jasey C. Cruz and Enrique B.Halili
                   div
-                    span Interactive by: <br> Tria Gonzales and Miggy Pinaroc
+                    span Interactive by <br> Tria Gonzales and Miggy Pinaroc
 
         #laptop.fixed
           //- reveal laptop
@@ -102,7 +102,7 @@
                       | "Publications in general really have to be aware of their target market, or target audience, their
                       | readers, their stakeholders. Why? Because writing your stories and the way you disseminate it, the
                       | effectiveness or the impact of that is determined by how well you know your readers’ habits."
-                    span Alithea C. Soriano, Editor-in-Chief
+                    span Alithea C. Soriano, Editor-in-Chief 2019-2020
                   .prks-img.wh.center
                     .illus.static.m-0-auto
         #shift.fixed
@@ -110,12 +110,12 @@
             transition(name="fade" mode="out-in")
               .shift-txt.center.col.absolute(v-if="getActiveSection == 10")
                 p
-                  | The GUIDON’s Social Media managers Bryce Rubi and Deana Pagtalunan can attest to the potential of shifting to a
+                  | The GUIDON’s Social Media managers 2019-2020 Bryce Rubi and Deana Pagtalunan can attest to the potential of shifting to a
                   | fully online platform, serving as first-hand witnesses to just how far online content can reach. As those in
                   | charge of monitoring the publication’s social media accounts, they mention the high engagement numbers that posts regarding relevant topics can garner, reaching
                   | readers beyond the campus grounds. However, they also point out the unique aspects of print releases that would be left behind if ever this shift ever did occur.
                 p
-                  | In all, members of The GUIDON’s Editorial Board have found that taking the leap towards the all-digital
+                  | In all, members of The GUIDON’s Editorial Board 2019-2020 have found that taking the leap towards the all-digital
                   | format has a lot of advantages. Yet, the monumental task is not without its drawbacks.
             transition(name="fade" mode="out-in")
               .pc-txt-intro.center.col.absolute.w-50vw(v-if="getActiveSection == 11")
@@ -212,7 +212,7 @@
                           | the transition must be gradual and well thought-out. According to her, the first step on this journey, which is
                           | currently underway, is to survey readers in order to gauge their reaction to the shift towards online content and remain sensitive to the audience’s preferences.
                         p
-                          | Associate Editor Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
+                          | Associate Editor 2019-2020 Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
                           | the transition. This means that writers must be able to both conceptualize content that goes beyond the printed
                           | word and execute these concepts through collaboration with design cluster staffers.
                       
@@ -220,12 +220,12 @@
                     .scrn-txt-wrapper.center.absolute(v-if="getActiveSection == 23")
                       .scrn-txt
                         p 
-                          | Meanwhile, Design Executive Editor Jason T. Mariano highlights the necessary
+                          | Meanwhile, Design Executive Editor 2019-2020 Jason T. Mariano highlights the necessary
                           | innovations that need to be made to The GUIDON’s website in order to support the influx of
                           | online releases. “Being in this position in the 90th Year, we can lay out the road map to make that happen, … we do
                           | not live in a print only era, that is why it calls to a shift to online,” said Mariano.
                         p
-                          | Associate Editor Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
+                          | Associate Editor 2019-2020 Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
                           | the transition. This means that writers must be able to both conceptualize content that goes beyond the printed
                           | word and execute these concepts through collaboration with design cluster staffers.
                   transition(name="fade" mode="out-in")
@@ -234,7 +234,7 @@
                         p 
                           | In addition to optimizing The GUIDON’s website, the Design Cluster is also looking towards developing an app which
                           | will serve as a hub for all of the publication’s content. This will make it easier for readers to access The
-                          | GUIDON’s releases. From the perspective of Graphic Design Editor Carmela Masiglat, the app will help increase reader
+                          | GUIDON’s releases. From the perspective of Graphic Design Editor 2019-2020 Carmela Masiglat, the app will help increase reader
                           | engagement due to its focus on graphics and illustrations, as well as its interactive features.
                   
                   //- menu
@@ -256,7 +256,7 @@
           transition(name="fade" mode="out-in")
             .mobile-wrapper.blu-bg.wh(v-if="getActiveSection == 25")
               .ctrl.absolute.jc-flex-start
-                button(v-on:click="clickReset") Reset App
+                span(v-on:click="clickReset") Reset App
               //- 3 columns
               .mobile-div-wrapper.row.center.wh
                 .mobile-div.center.mob-ft
@@ -270,7 +270,8 @@
                         p
                           | "[The GUIDON] does livestreaming ...this might be a good way to get access to watches because you’re going to get
                           | that push notification ...Just one tap and you’re watching already."
-                        span Jacob Uriel R. Quintos,<br> Digital Development Deputy
+                        span Jacob Uriel R. Quintos,<br> Digital Development Deputy 2019-2020
+
                   // breaking articles
                   transition(name="fade")
                     .mobile-txt-div.center.absolute(v-if="breaking")
@@ -281,7 +282,8 @@
                         p
                           | "I think one of the main features [is transmitting] all the breaking articles, especially if they are relevant
                           | because the [article’s popularity] really depends on relevance."
-                        span Bryce R. Rubi,<br> Social Media Manager
+                        span Bryce R. Rubi,<br> Social Media Manager 2019-2020
+
 
                 .mobile-div.jc-flex-end.col.main-mob
                   .ip-wrapper
@@ -312,7 +314,7 @@
                         p
                           | "Having a feature that can save articles, because the website we have now, you can only save it by having the
                           | tab open and a lot of our content is timeless in nature"
-                        span Jason T. Mariano,<br> Design Executive Editor
+                        span Jason T. Mariano,<br> Design Executive Editor 2019-2020
 
                   transition(name="fade")
                     .mobile-txt-div.center.absolute(v-if="forum")
@@ -323,7 +325,8 @@
                         p
                           | "I think it would be good if there was a forum portion.
                           | The only time the reader really has something to say is when our work is already done."
-                        span Carmela Masiglat,<br> Graphic Design Editor                    
+                        span Carmela Masiglat,<br> Graphic Design Editor 2019-2020
+                  
 
         #final.fixed
           .final.center.wh
@@ -363,11 +366,41 @@
                     | to release content.
                 .final-div
                   .low-col.static
+
+        #outro.fixed
+          .search-div
+            //- reveal guidon logo
+            transition(name="fade" mode="out-in")
+              .srch-bx.ai-flex-end.wh.t-75(v-if="getActiveSection == 29")
+                .logo.center
+                  .tgdn-wrapper
+                    .tgdn.static
+
+          .search-div
+            .srch-bx.center.wh
+              //- disappear when after displayin on laptop
+              transition(name="fade" mode="out-in")
+                .srch.center.outro(v-if="getActiveSection == 29")
+                  .icon-wrapper 
+                    .search.static
+                  //- fade animation for Guidon text
+                  transition(name="fade")
+                    span.ml-5p(v-if="getActiveSection == 29") THE GUIDON Online
+
+          .search-div 
+            //- reveal writers and dev/design
+            transition(name="fade" mode="out-in")
+              .srch-bx.center(v-if="getActiveSection == 29")
+                .cc
+                  div
+                    span Written by <br> Jasey C. Cruz and Enrique B.Halili
+                  div
+                    span Interactive by <br> Tria Gonzales and Miggy Pinaroc
+
         #triangle.center
           transition(name="fade" mode="out-in")
             .triangle.triangle-w.bounce(v-if="getActiveSection >= 7 && getActiveSection < 10 || getActiveSection >=12 && getActiveSection < 25")
             .triangle.triangle-n.bounce(v-else-if="getActiveSection < 7 || getActiveSection >= 10 && getActiveSection < 12 || getActiveSection >= 25  && getActiveSection < 28" )
-
 
 
     // sections control which sections will be active
@@ -400,6 +433,7 @@
       section(ref="animate--27")
       section(ref="animate--28")
       section(ref="animate--29")
+      section(ref="animate--30")
 
 </template>
 
@@ -409,6 +443,19 @@ import { store } from "@/store/index.js";
 
 export default {
   name: "Main",
+  metaInfo: {
+    title: "90th",
+    meta: [
+      {
+        property: "og:title",
+        content: "90th"
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "" },
+      { property: "og:description", content: "THE GUIDON Online" },
+      { property: "og:url", content: "" }
+    ]
+  },
   data() {
     return {
       liveAlpha: false,
@@ -540,6 +587,10 @@ export default {
 
 #fixed {
   z-index: 7;
+}
+
+#outro {
+  z-index: -1;
 }
 
 .srch-bx {
@@ -947,6 +998,11 @@ export default {
       left: -6%;
       height: 15vw;
       width: 13vw;
+
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 15vw !important;
+      }
+
       @include screen("md") {
         height: 20vw;
       }
@@ -962,9 +1018,14 @@ export default {
       height: 17vw;
       width: 17vw;
 
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 23.5vw !important;
+      }
+
       @include screen("md") {
         height: 30vw;
       }
+
       @include screen("xs") {
       }
     }
@@ -975,6 +1036,10 @@ export default {
       right: 2.5%;
       height: 20vw;
       width: 20vw;
+
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 20vw !important;
+      }
 
       @include screen("md") {
         height: 30vw;
@@ -1002,7 +1067,7 @@ export default {
     text-align: center;
 
     span {
-      font-size: 1.75vw;
+      font-size: $font-size--2;
       color: white;
 
       @include screen("md") {
@@ -1020,17 +1085,32 @@ export default {
       background-image: url("../assets/img/Phone.png");
       background-position: top center;
       width: calc(100vw / 3);
-      height: 45vw;
+      height: 42vw;
 
       @include screen("md") {
         width: 80vw;
-        height: 100vw;
+        height: 95vw;
       }
 
       @include screen("xs") {
         width: 100vw;
-        height: 150vw;
+        height: 130vw;
       }
+
+      // fix less than ipad stuff
+      @media screen and (max-width: 991px) and (max-height: 900px) { 
+        height: 50vw !important; 
+        width: 40vw !important;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 576px) and (max-height: 900px) { 
+        height: 80vw !important; 
+        width: 60vw !important;
+        margin: 0 auto;
+      }
+
+      
     }
 
     .ip-content-wrapper {
@@ -1040,6 +1120,14 @@ export default {
         height: 75%;
         width: 25vw;
         top: 10%;
+
+        @media screen and (max-width: 991px) and (max-height: 900px) { 
+          width: 30vw !important; 
+        }
+
+        @media screen and (max-width: 576px) and (max-height: 900px) { 
+          width: 45vw !important; 
+        }
 
         @include screen("md") {
           width: 60vw;
@@ -1076,7 +1164,7 @@ export default {
 
     span {
       font-weight: bold;
-      font-size: 1.75vw;
+      font-size: $font-size--2;
 
       @include screen("md") {
         font-size: $font-size--3;
