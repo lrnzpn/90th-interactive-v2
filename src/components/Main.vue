@@ -85,7 +85,7 @@
                   .prks-txt.wh.ai-flex-start
                     span The perks of going digital
                     p
-                      | According to Editor-in-Chief Alithea C. Soriano,
+                      | According to Editor-in-Chief 2019-2020 Alithea C. Soriano,
                       | adjusting to the demands of its audience is one of the
                       | biggest factors pushing The GUIDON to produce more
                       | online multimedia content. She also stresses the
@@ -255,7 +255,7 @@
         #mobile.fixed
           transition(name="fade" mode="out-in")
             .mobile-wrapper.blu-bg.wh(v-if="getActiveSection == 25")
-              .ctrl.absolute.jc-flex-start
+              .ctrl.absolute.center
                 span(v-on:click="clickReset") Reset App
               //- 3 columns
               .mobile-div-wrapper.row.center.wh
@@ -288,7 +288,7 @@
                 .mobile-div.jc-flex-end.col.main-mob
                   .ip-wrapper
                     .iphone-txt.mtb-3p
-                     span Click on the red elements to view the future Guidon app features.
+                     span Click on the red elements to view the future The GUIDON app features.
                     .iphone-wrapper
                       .iphone.background
                         .ip-content-wrapper.center
@@ -741,11 +741,19 @@ export default {
   background: $light-navy-gradient;
 
   .prks-wrapper {
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      flex-direction: column;
+    }
+
     .prks-txt {
       color: white;
       width: 43vw;
       flex-direction: column;
       text-align: justify;
+
+      @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+        width: 80vw;
+      }
 
       @include screen("md") {
         width: 80vw;
@@ -785,7 +793,8 @@ export default {
       @include screen("md") {
         width: 80vw;
       }
-      @include screen("xs") {
+      @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+        width: 80vw;
       }
 
       .tgdn-mob {
@@ -795,13 +804,19 @@ export default {
         @include screen("md") {
           width: 100%;
         }
-        @include screen("xs") {
+        @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+          width: 100%;
         }
       }
 
       .illus {
         background-image: url("../assets/img/Illustartion.png");
         width: 33vw;
+
+        @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+          width: 50vw;
+        }
+
         @include screen("md") {
           width: 50vw;
         }
@@ -861,6 +876,19 @@ export default {
   }
 }
 
+.cons-wrapper,
+.pros-wrapper {
+  @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+    flex-direction: column;
+  }
+
+  .pc-img {
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      width: 100vw;
+    }
+  }
+}
+
 .pc-wrapper {
   .pros {
     background: $light-navy-gradient;
@@ -869,7 +897,9 @@ export default {
       width: 100vw;
       height: 75vw;
     }
-    @include screen("xs") {
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      width: 100vw;
+      height: 75vw;
     }
 
     span {
@@ -890,7 +920,9 @@ export default {
       width: 100vw;
       height: 75vw;
     }
-    @include screen("xs") {
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      width: 100vw;
+      height: 75vw;
     }
 
     span {
@@ -958,6 +990,10 @@ export default {
     background-image: url("../assets/img/Window.png");
     width: 90vw;
     height: 90vh;
+
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      background-size: cover;
+    }
   }
 
   .scrn-txt {
@@ -1092,27 +1128,36 @@ export default {
       width: calc(100vw / 3);
       height: 42vw;
 
+      @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+        height: 100vw;
+        width: 70vw;
+        margin: 0 auto;
+      }
+
       @include screen("md") {
-        width: 80vw;
-        height: 95vw;
-      }
-
-      @include screen("xs") {
-        width: 100vw;
-        height: 130vw;
-      }
-
-      // fix less than ipad stuff
-      @media screen and (max-width: 991px) and (max-height: 900px) {
-        height: 50vw !important;
-        width: 40vw !important;
+        height: 50vw;
+        width: 40vw;
         margin: 0 auto;
       }
 
-      @media screen and (max-width: 576px) and (max-height: 900px) {
-        height: 80vw !important;
-        width: 60vw !important;
-        margin: 0 auto;
+      @include screen("sm") {
+        height: 75vw;
+        width: 55vw;
+      }
+
+      @media screen and (max-width: 768px) and (min-height: 900px) {
+        height: 100vw;
+        width: 70vw;
+      }
+
+      @media screen and (max-width: 575px) and (max-height: 900px) {
+        height: 100vw;
+        width: 70vw;
+      }
+
+      @media screen and (max-width: 425px) and (max-height: 900px) {
+        height: 135vw;
+        width: 90vw;
       }
     }
 
@@ -1124,21 +1169,28 @@ export default {
         width: 25vw;
         top: 10%;
 
-        @media screen and (max-width: 991px) and (max-height: 900px) {
-          width: 30vw !important;
-        }
-
-        @media screen and (max-width: 576px) and (max-height: 900px) {
-          width: 45vw !important;
+        @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+          width: 50vw;
         }
 
         @include screen("md") {
-          width: 60vw;
+          width: 30vw;
         }
 
-        @include screen("xs") {
-          width: 80vw;
-          top: 7.5%;
+        @include screen("sm") {
+          width: 40vw;
+        }
+
+        @media screen and (max-width: 768px) and (min-height: 900px) {
+          width: 50vw;
+        }
+
+        @media screen and (max-width: 575px) and (max-height: 900px) {
+          width: 50vw;
+        }
+
+        @media screen and (max-width: 425px) and (max-height: 900px) {
+          width: 70vw;
         }
       }
     }
@@ -1158,9 +1210,21 @@ export default {
         border-radius: 10px;
         width: 75vw;
       }
+
+      @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+        background-color: #2c4396;
+        padding: 2.5% 5% 5% 5%;
+        border-radius: 10px;
+        width: 75vw;
+      }
     }
 
     @include screen("md") {
+      width: 100vw;
+      z-index: 69;
+    }
+
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
       width: 100vw;
       z-index: 69;
     }
@@ -1194,12 +1258,16 @@ export default {
 }
 
 .final-wrapper {
+  @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+    flex-direction: column;
+  }
   .final-txt {
     width: 43vw;
     @include screen("md") {
       width: 80vw;
     }
-    @include screen("xs") {
+    @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+      width: 80vw;
     }
 
     p {
@@ -1225,14 +1293,16 @@ export default {
       @include screen("md") {
         width: 80vw;
       }
-      @include screen("xs") {
+      @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+        width: 80vw;
       }
       .news-line {
         background-image: url("../assets/img/NewspaperStack.png");
         @include screen("md") {
           width: 80vw;
         }
-        @include screen("xs") {
+        @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+          width: 80vw;
         }
       }
 
@@ -1241,7 +1311,8 @@ export default {
         @include screen("md") {
           width: 80vw;
         }
-        @include screen("xs") {
+        @media screen and (max-width: 1199px) and (max-height: 1366px) and (orientation: portrait) {
+          width: 80vw;
         }
       }
     }
@@ -1259,7 +1330,11 @@ export default {
     }
 
     @media screen and (max-width: 425px) {
-      height: 75vw;
+      height: 78vw;
+    }
+
+    @media screen and (max-width: 425px) and (max-height: 800px) {
+      height: 65vw;
     }
   }
 
