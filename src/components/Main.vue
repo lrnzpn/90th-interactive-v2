@@ -1255,11 +1255,11 @@ export default {
       height: 40vw;
     }
     @include screen("xs") {
-      height: 60vw;
+      height: 55vw;
     }
 
     @media screen and (max-width: 425px) {
-      height: 80vw;
+      height: 75vw;
     }
   }
 
