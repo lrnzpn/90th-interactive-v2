@@ -1029,8 +1029,9 @@ export default {
         width: 20vw;
       }
 
-      @include screen("xs") { height: 35vw !important; }
-
+      @include screen("xs") {
+        height: 35vw !important;
+      }
     }
 
     .ppl--3 {
@@ -1102,19 +1103,17 @@ export default {
       }
 
       // fix less than ipad stuff
-      @media screen and (max-width: 991px) and (max-height: 900px) { 
-        height: 50vw !important; 
+      @media screen and (max-width: 991px) and (max-height: 900px) {
+        height: 50vw !important;
         width: 40vw !important;
         margin: 0 auto;
       }
 
-      @media screen and (max-width: 576px) and (max-height: 900px) { 
-        height: 80vw !important; 
+      @media screen and (max-width: 576px) and (max-height: 900px) {
+        height: 80vw !important;
         width: 60vw !important;
         margin: 0 auto;
       }
-
-      
     }
 
     .ip-content-wrapper {
@@ -1125,12 +1124,12 @@ export default {
         width: 25vw;
         top: 10%;
 
-        @media screen and (max-width: 991px) and (max-height: 900px) { 
-          width: 30vw !important; 
+        @media screen and (max-width: 991px) and (max-height: 900px) {
+          width: 30vw !important;
         }
 
-        @media screen and (max-width: 576px) and (max-height: 900px) { 
-          width: 45vw !important; 
+        @media screen and (max-width: 576px) and (max-height: 900px) {
+          width: 45vw !important;
         }
 
         @include screen("md") {
@@ -1253,10 +1252,14 @@ export default {
   .final-div {
     height: calc(80vw / 3);
     @include screen("md") {
-      height: calc(120vw / 2);
+      height: 40vw;
     }
     @include screen("xs") {
-      height: 95vw;
+      height: 60vw;
+    }
+
+    @media screen and (max-width: 425px) {
+      height: 80vw;
     }
   }
 

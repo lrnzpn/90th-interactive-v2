@@ -437,11 +437,13 @@ section {
   .up-col {
     background-image: url("../assets/img/UpperCollage.png");
     width: 100vw;
+    background-position: top center;
   }
 
   .low-col {
     background-image: url("../assets/img/LowerCollage_optimized.png");
     width: 100vw;
+    background-position: bottom center;
   }
 }
 
