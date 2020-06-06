@@ -628,6 +628,7 @@ export default {
 
     span {
       color: white;
+      font-weight: bold;
       font-size: $font-size--8;
       display: inline-block;
       white-space: nowrap;
@@ -755,7 +756,6 @@ export default {
 
       span {
         font-weight: bold;
-        font-style: italic;
         font-size: $font-size--3;
         @include screen("md") {
           font-size: $font-size--5;
@@ -986,7 +986,7 @@ export default {
       }
 
       @include screen("xs") {
-        font-size: $font-size--6;
+        font-size: 3.25vw;
       }
     }
   }
@@ -1005,10 +1005,11 @@ export default {
 
       @include screen("md") {
         height: 20vw;
+        width: 15vw;
       }
 
       @include screen("xs") {
-        height: 25vw !important;
+        height: 30vw !important;
       }
     }
 
@@ -1025,9 +1026,10 @@ export default {
 
       @include screen("md") {
         height: 30vw;
+        width: 20vw;
       }
 
-      @include screen("xs") { height: 28vw !important; }
+      @include screen("xs") { height: 35vw !important; }
 
     }
 
