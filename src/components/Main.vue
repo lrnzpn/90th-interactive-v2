@@ -92,7 +92,7 @@
                       | importance of moving with the times when it comes to
                       | staying relevant to the lifestyle of the readers,
                       | especially with the rising demand for easily
-                      | accessible news amidst the “boom of social media”.
+                      | accessible news amidst the "boom of social media."
                   .prks-img.wh.ai-flex-end
                     .tgdn-mob.static.m-0-auto
               transition(name="fade" mode="out-in")
