@@ -20,7 +20,7 @@
                     .search.static
                   //- fade animation for Guidon text
                   transition(name="fade")
-                    span.ml-5p(v-if="getActiveSection >= 3") THE GUIDON Online
+                    span.ml-5p(v-if="getActiveSection >= 3") The GUIDON Online
 
           .search-div 
             //- reveal writers and dev/design
@@ -28,9 +28,9 @@
               .srch-bx.center(v-if="getActiveSection == 3")
                 .cc
                   div
-                    span Written by <br> Jasey C. Cruz and Enrique B.Halili
+                    span Written by Jasey C. Cruz and Enrique B. Halili
                   div
-                    span Interactive by <br> Tria Gonzales and Miggy Pinaroc
+                    span Interactive by Tria Gonzales and Miggy Pinaroc
 
         #laptop.fixed
           //- reveal laptop
@@ -51,12 +51,10 @@
                 .laptop-txt-wrapper.center.absolute
                   .laptop-txt.center
                     p.blue 
-                      | FOR 90 years, The GUIDON has committed itself to providing its readers with
-                      | accurate and engaging content, made accessible through newsstands across the
-                      | campus. After the publication launched its online platforms in 2008, it has
-                      | steadily begun to delve into the world of digital journalism. Looking towards
-                      | the future, The GUIDON hopes to fully transition into an online publication by
-                      | its 100th year.
+                      | FOR 90 years, The GUIDON has endeavored to provide its readers accurate and engaging content,
+                      | made accessible through newsstands found within campus confines.
+                      | After the publication launched its online platforms in 2008, it began to delve into the world of digital journalism.
+                      | Looking towards the future, The GUIDON hopes to fully transition into an online publication by its 100<sup>th</sup> year.
         
         #newspaper.fixed
           .newspaper.center.wh
@@ -85,7 +83,7 @@
                   .prks-txt.wh.ai-flex-start
                     span The perks of going digital
                     p
-                      | According to Editor-in-Chief 2019-2020 Alithea C. Soriano,
+                      | According to Editor-in-Chief for AY 2019-2020 Alithea C. Soriano,
                       | adjusting to the demands of its audience is one of the
                       | biggest factors pushing The GUIDON to produce more
                       | online multimedia content. She also stresses the
@@ -102,7 +100,7 @@
                       | "Publications in general really have to be aware of their target market, or target audience, their
                       | readers, their stakeholders. Why? Because writing your stories and the way you disseminate it, the
                       | effectiveness or the impact of that is determined by how well you know your readers’ habits."
-                    span Alithea C. Soriano, Editor-in-Chief 2019-2020
+                    span.title Alithea C. Soriano, Editor-in-Chief for AY 2019-2020
                   .prks-img.wh.center
                     .illus.static.m-0-auto
         #shift.fixed
@@ -110,18 +108,18 @@
             transition(name="fade" mode="out-in")
               .shift-txt.center.col.absolute(v-if="getActiveSection == 10")
                 p
-                  | The GUIDON’s Social Media managers 2019-2020 Bryce Rubi and Deana Pagtalunan can attest to the potential of shifting to a
+                  | The GUIDON’s Social Media managers for AY 2019-2020 Bryce Rubi and Deana Pagtalunan can attest to the potential of shifting to a
                   | fully online platform, serving as first-hand witnesses to just how far online content can reach. As those in
-                  | charge of monitoring the publication’s social media accounts, they mention the high engagement numbers that posts regarding relevant topics can garner, reaching
-                  | readers beyond the campus grounds. However, they also point out the unique aspects of print releases that would be left behind if ever this shift ever did occur.
+                  | charge of monitoring the publication’s social media accounts, they mention the high engagement numbers that posts tackling relevant topics can garner—evidence that our content reaches readers beyond campus grounds. 
+                  | However, they also point out the unique aspects of print releases that would be left behind if ever this shift ever did occur.
                 p
                   | In all, members of The GUIDON’s Editorial Board 2019-2020 have found that taking the leap towards the all-digital
-                  | format has a lot of advantages. Yet, the monumental task is not without its drawbacks.
+                  | format has a lot of advantages. However, this monumental task is not without its drawbacks.
             transition(name="fade" mode="out-in")
-              .pc-txt-intro.center.col.absolute.w-50vw(v-if="getActiveSection == 11")
+              .pc-txt-intro.center.col.absolute(v-if="getActiveSection == 11")
                 p
-                  | According to our editors, these are the <b>pros and cons</b> of fully shifting
-                  | The GUIDON to an online platform:
+                  | According to our former editors, these are the <b>pros and cons</b>
+                  | of The GUIDON's full transition to an online platform:
         
         #pros-cons.fixed
           .pc-wrapper.wh
@@ -134,7 +132,7 @@
                   transition(name="fade" mode="out-in")
                     .defend.background.absolute(v-if="getActiveSection == 12")
                       .pc-txt.center.absolute
-                        span Content can be released immediately
+                        span Urgent pieces can be released immediately
                       .pc-img-crds.absolute.jc-ai-flex-end
                         span Photo by Miguel Tarrosa
                   transition(name="fade" mode="out-in")
@@ -152,7 +150,7 @@
                   transition(name="fade" mode="out-in")
                     .rally2.background.absolute(v-if="getActiveSection == 15")
                       .pc-txt.center.absolute
-                        span Distribution is more environmentally friendly.
+                        span Waste from distribution is minimized, allowing for sustainable practices.
                       .pc-img-crds.absolute.jc-ai-flex-end
                         span Photo by Bruce Ong
                   transition(name="fade" mode="out-in")
@@ -164,7 +162,7 @@
                   transition(name="fade" mode="out-in")
                     .arms.background.absolute(v-if="getActiveSection == 17")
                       .pc-txt.center.absolute
-                        span Articles are more easily archived digitally.
+                        span Articles are more easily archived through digital means.
                       .pc-img-crds.absolute.jc-ai-flex-end
                         span Photo by Zach Garcia
             transition(name="fade" mode="out-in")
@@ -209,32 +207,30 @@
                         span Into the future
                         p 
                           | While there is much excitement surrounding The GUIDON’s future as a fully online publication, Soriano notes that
-                          | the transition must be gradual and well thought-out. According to her, the first step on this journey, which is
-                          | currently underway, is to survey readers in order to gauge their reaction to the shift towards online content and remain sensitive to the audience’s preferences.
+                          | the transition must be gradual and well thought-out. According to her, the first step in this journey is to survey readers in order to gauge their insights on the shift towards online content.
+                          | This allows The GUIDON to remain sensitive to its audiences' news consumption preferences.
                         p
-                          | Associate Editor 2019-2020 Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
+                          | Associate Editor for AY 2019-2020 Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
                           | the transition. This means that writers must be able to both conceptualize content that goes beyond the printed
-                          | word and execute these concepts through collaboration with design cluster staffers.
+                          | word and execute these concepts through collaboration with Design Cluster staffers.
                       
                   transition(name="fade" mode="out-in")
                     .scrn-txt-wrapper.center.absolute(v-if="getActiveSection == 23")
                       .scrn-txt
                         p 
-                          | Meanwhile, Design Executive Editor 2019-2020 Jason T. Mariano highlights the necessary
+                          | Meanwhile, Design Executive Editor for AY 2019-2020 Jason T. Mariano highlights the necessary
                           | innovations that need to be made to The GUIDON’s website in order to support the influx of
-                          | online releases. “Being in this position in the 90th Year, we can lay out the road map to make that happen, … we do
-                          | not live in a print only era, that is why it calls to a shift to online,” said Mariano.
+                          | online releases. “Being in this position in the 90th year, we can lay out the roadmap to make that happen...we do
+                          | not live in a print-only era, that is why it calls to a shift to online,” he said.
                         p
-                          | Associate Editor 2019-2020 Margarita C. Gonzalez says that it is vital to ensure that staffers are prepared to carry out
-                          | the transition. This means that writers must be able to both conceptualize content that goes beyond the printed
-                          | word and execute these concepts through collaboration with design cluster staffers.
+                          | One major focus is the creation of an interactive and dynamic website which is optimized for both desktop and mobile devices. With this, the Digital Development staff will take the lead in coding a website that can host a wide range of multimedia content that the publication plans to release.
                   transition(name="fade" mode="out-in")
                     .scrn-txt-wrapper.center.absolute(v-if="getActiveSection == 24")
                       .scrn-txt
                         p 
                           | In addition to optimizing The GUIDON’s website, the Design Cluster is also looking towards developing an app which
                           | will serve as a hub for all of the publication’s content. This will make it easier for readers to access The
-                          | GUIDON’s releases. From the perspective of Graphic Design Editor 2019-2020 Carmela Masiglat, the app will help increase reader
+                          | GUIDON’s releases. From the perspective of Graphic Design Editor for AY 2019-2020 Carmela Masiglat, the app will help increase reader
                           | engagement due to its focus on graphics and illustrations, as well as its interactive features.
                   
                   //- menu
@@ -269,8 +265,9 @@
                         span Livestreaming
                         p
                           | "[The GUIDON] does livestreaming ...this might be a good way to get access to watches because you’re going to get
-                          | that push notification ...Just one tap and you’re watching already."
-                        span Jacob Uriel R. Quintos,<br> Digital Development Deputy 2019-2020
+                          | that push notification ...just one tap and you’re watching already."
+                        span Jacob Uriel R. Quintos,
+                        span.title Digital Development Deputy for AY 2019-2020
 
                   // breaking articles
                   transition(name="fade")
@@ -278,11 +275,12 @@
                       .mb-txt-wrap.ai-flex-start.col
                         .close-wrap.jc-flex-end
                           .close(v-on:click="closeModal")
-                        span Breaking Articles
+                        span Breaking articles
                         p
                           | "I think one of the main features [is transmitting] all the breaking articles, especially if they are relevant
                           | because the [article’s popularity] really depends on relevance."
-                        span Bryce R. Rubi,<br> Social Media Manager 2019-2020
+                        span Bryce R. Rubi,
+                        span.title Social Media Manager for AY 2019-2020
 
 
                 .mobile-div.jc-flex-end.col.main-mob
@@ -310,22 +308,24 @@
                       .mb-txt-wrap.ai-flex-start.col
                         .close-wrap.jc-flex-end
                             .close(v-on:click="closeModal")
-                        span Saved Articles
+                        span Saved articles
                         p
                           | "Having a feature that can save articles, because the website we have now, you can only save it by having the
-                          | tab open and a lot of our content is timeless in nature"
-                        span Jason T. Mariano,<br> Design Executive Editor 2019-2020
+                          | tab open and a lot of our content is timeless in nature."
+                        span Jason T. Mariano,
+                        span.title Design Executive Editor for AY 2019-2020
 
                   transition(name="fade")
                     .mobile-txt-div.center.absolute(v-if="forum")
                       .mb-txt-wrap.ai-flex-start.col
                         .close-wrap.jc-flex-end
                           .close(v-on:click="closeModal")
-                        span Chat Forum
+                        span Chat forum
                         p
                           | "I think it would be good if there was a forum portion.
                           | The only time the reader really has something to say is when our work is already done."
-                        span Carmela Masiglat,<br> Graphic Design Editor 2019-2020
+                        span Carmela Masiglat,
+                        span.title Graphic Design Editor for AY 2019-2020
                   
 
         #final.fixed
@@ -358,10 +358,10 @@
                   p 
                     | Yet, amidst all the hype about The GUIDON’s digital platform, Soriano and Gonzalez both agree that there will always be a
                     | role for print releases, especially for issues that correspond to a specific theme. They believe that special releases have
-                    | the potential to make more of an impact if they are planned out with a specific purpose in mind.
+                    | the potential to leave a bigger impact if these are planned out with a specific purpose in mind.
                   p
-                    | While social media trends are ever evolving, the printed format remains reliable
-                    | for its constancy. Soriano states that while online content is currently more
+                    | Despite ever-changing trends in social media, the printed format remains reliable for its permanence.
+                    | Soriano states that while online content is currently more
                     | preferred, print releases provide a “safety net” and the assurance that the publication is able
                     | to release content.
                 .final-div
@@ -385,7 +385,7 @@
                     .search.static
                   //- fade animation for Guidon text
                   transition(name="fade")
-                    span.ml-5p(v-if="getActiveSection == 29") THE GUIDON Online
+                    span.ml-5p(v-if="getActiveSection == 29") The GUIDON Online
 
           .search-div 
             //- reveal writers and dev/design
@@ -393,9 +393,9 @@
               .srch-bx.center(v-if="getActiveSection == 29")
                 .cc
                   div
-                    span Written by <br> Jasey C. Cruz and Enrique B.Halili
+                    span Written by Jasey C. Cruz and Enrique B. Halili
                   div
-                    span Interactive by <br> Tria Gonzales and Miggy Pinaroc
+                    span Interactive by Tria Gonzales and Miggy Pinaroc
 
         #triangle.center
           transition(name="fade" mode="out-in")
@@ -774,6 +774,18 @@ export default {
         }
       }
 
+      span.title {
+        font-size: 1.75vw;
+
+        @include screen("md") {
+          font-size: 2.75vw;
+        }
+
+        @include screen("xs") {
+          font-size: 3.75vw;
+        }
+      }
+
       p {
         font-size: $font-size--3;
         line-height: $font-size--5;
@@ -850,6 +862,7 @@ export default {
 
   .pc-txt-intro {
     text-align: center;
+    width: 60vw;
 
     @include screen("md") {
       width: 80vw;
@@ -1239,6 +1252,18 @@ export default {
 
       @include screen("xs") {
         font-size: $font-size--5;
+      }
+    }
+
+    span.title {
+      font-size: 1.25vw;
+
+      @include screen("md") {
+        font-size: 1.75vw;
+      }
+
+      @include screen("xs") {
+        font-size: 2.75vw;
       }
     }
 
