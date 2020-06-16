@@ -132,7 +132,7 @@
                   transition(name="fade" mode="out-in")
                     .defend.background.absolute(v-if="getActiveSection == 12")
                       .pc-txt.center.absolute
-                        span Urgent pieces can be released immediately
+                        span Urgent pieces can be released immediately.
                       .pc-img-crds.absolute.jc-ai-flex-end
                         span Photo by Miguel Tarrosa
                   transition(name="fade" mode="out-in")
